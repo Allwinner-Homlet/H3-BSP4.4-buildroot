@@ -1,0 +1,6 @@
+config BR2_PACKAGE_MTOP
+	bool "mtop"
+	help
+	  This shell script is a allwinner platform tool.
+	  It can monitor mbus performonce.
+

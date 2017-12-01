@@ -1,0 +1,26 @@
+config BR2_PACKAGE_LIBPNG
+	bool "libpng"
+	select BR2_PACKAGE_ZLIB
+	help
+	  Library for handling PNG (Portable Network Graphics)
+	  images.
+
+	  http://www.libpng.org/
+
+if BR2_PACKAGE_LIBPNG
+
+choice
+	prompt "Libpng Version"
+	default BR2_PACKAGE_LIBPNG_1_6
+	help
+	  Select the version of Libpng API/ABI you wish to use.
+
+	config BR2_PACKAGE_LIBPNG_1_4
+		bool "Libpng 1.4.x"
+
+	config BR2_PACKAGE_LIBPNG_1_6
+		bool "Libpng 1.6.x"
+
+endchoice
+
+endif

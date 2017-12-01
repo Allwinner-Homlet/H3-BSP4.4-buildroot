@@ -1,0 +1,37 @@
+diff --git a/scripts/build.sh b/scripts/build.sh
+index d26d336..74eb3ea 100755
+--- a/scripts/build.sh
++++ b/scripts/build.sh
+@@ -20,7 +20,7 @@ build_buildroot()
+         make O=${LICHEE_BR_OUT} -C ${LICHEE_BR_DIR} ${LICHEE_BR_DEFCONF}
+     fi
+ 
+-    make O=${LICHEE_BR_OUT} -C ${LICHEE_BR_DIR}
++    make O=${LICHEE_BR_OUT} -C ${LICHEE_BR_DIR} LICHEE_GEN_ROOTFS=y
+ }
+ 
+ build_toolchain()
+diff --git a/scripts/mkcmd.sh b/scripts/mkcmd.sh
+index 8e2aa56..2a650d3 100755
+--- a/scripts/mkcmd.sh
++++ b/scripts/mkcmd.sh
+@@ -419,7 +419,7 @@ function mklichee()
+     
+ 	check_env
+ 
+-        mkbr && mkkernel && mkrootfs
++        mkbr #&& mkkernel && mkrootfs
+         [ $? -ne 0 ] && return 1
+     
+ 	mk_info "----------------------------------------"
+diff --git a/scripts/mkrule b/scripts/mkrule
+index 522565e..b29b3b3 100755
+--- a/scripts/mkrule
++++ b/scripts/mkrule
+@@ -10,5 +10,6 @@ sun8iw8p1_linux			sun8iw8p1_defconfig	sun8iw8p1smp_defconfig
+ sun8iw9p1_linux			sun8i_defconfig		sun8iw9p1smp_defconfig
+ sun8iw10p1_linux		sun8i_defconfig		sun8iw10p1smp_defconfig
+ sun8iw11p1_linux		sun8iw11p1_defconfig	sun8iw11p1smp_defconfig
++sun8iw12p1_linux		sun8iw12p1_defconfig	sun8iw12p1smp_defconfig
+ 
+ sun50iw1p1_linux                sun50iw1p1_defconfig    sun50iw1p1smp_defconfig
